@@ -9,5 +9,8 @@ import { ParkDetailsPage } from './park-details';
   imports: [
     IonicPageModule.forChild(ParkDetailsPage),
   ],
+  exports: [
+    ParkDetailsPage
+  ]
 })
 export class ParkDetailsPageModule {}

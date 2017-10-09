@@ -12,10 +12,7 @@ export class ParkData{
             return Promise.resolve(this.data);
         }
     
-        return new Promise(resolve =>{
-            this.http.get('assets/data/data.json')
-            .map(res => res.json())
-            .subscribe(data => {
+        return new Promise(resolve =>{this.http.get('assets/data/data.json').map(res => res.json()).subscribe(data => {
                 this.data = data;
                 resolve(this.data);
             });

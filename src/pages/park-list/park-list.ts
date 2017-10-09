@@ -20,7 +20,7 @@ export class ParkListPage {
     })
   }
   goParkDetails(theParkData){
-    console.log(theParkData);
+    this.navCtrl.push("ParkDetailsPage", {parkData: theParkData});
   }
 
 }

@@ -14,8 +14,7 @@ import {ParkData} from './providers/park-data';
 export class MyApp {
   rootPage = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, 
-    splashScreen: SplashScreen, public parkData: ParkData) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public parkData: ParkData) {
    platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
