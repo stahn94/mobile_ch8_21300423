@@ -13,7 +13,8 @@ import {ParkData} from '../../app/providers/park-data';
   templateUrl: 'park-list.html'
 })
 export class ParkListPage {
-  parks: Array<Object> = [];
+  parks: Array<Object> = []
+  searchQuery: string ='';
   constructor(public navCtrl: NavController, public parkData: ParkData) {
     parkData.getParks().then(theResult => {
       this.parks = theResult;
@@ -22,5 +23,24 @@ export class ParkListPage {
   goParkDetails(theParkData){
     this.navCtrl.push("ParkDetailsPage", {parkData: theParkData});
   }
+  getParks(event){
+    this.parkData.getParks().then(theResult => {
+      this.parks = theResult;
+    })
+    let queryString = event.target.value;
 
+    if(queryString !== undefined){
+      if(queryString.trim() ==''){return;}
+
+      this.parkData.getFilteredParks(queryString).then
+        (theResult => {
+          this.parks = theResult;
+        })
+    }
+  }
+  resetList(event){
+    this.parkData.getParks().then(theResult => {
+      this.parks = theResult;
+    })
+  }
 }
